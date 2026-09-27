@@ -1,4 +1,4 @@
-(() => {
+/*(() => {
   const sections = document.querySelectorAll('[data-section]');
 
   sections.forEach((section) => {
@@ -57,3 +57,7 @@
     setState('collapsed');
   });
 })();
+
+
+
+*/
