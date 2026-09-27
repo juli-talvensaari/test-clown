@@ -1,0 +1,12 @@
+{
+  "name": "julitalvensaari-com",
+  "private": true,
+  "scripts": {
+    "build": "@tailwindcss/cli -i ./src/input.css -o ./styles.css --minify",
+    "watch": "@tailwindcss/cli -i ./src/input.css -o ./styles.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "latest",
+    "tailwindcss": "latest"
+  }
+}
