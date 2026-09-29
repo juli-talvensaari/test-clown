@@ -6,7 +6,6 @@
     const summary = section.querySelector('.section-summary');
     const more = section.querySelector('.tell-more');
     const content = section.querySelector('.section-content');
-    const icon = section.querySelector('.collapse-icon');
     const title = section.querySelector('.section-title');
     let state = 'collapsed';
 
@@ -16,17 +15,15 @@
       summary.classList.add('hidden');
       more.classList.add('hidden');
       content.classList.add('hidden');
-      icon.classList.remove('rotate-45');
-      button.classList.remove('bg-sky-50', 'bg-slate-50');
+      button.classList.remove('bg-slate-50', 'bg-sky-50');
 
       if (next === 'summary') {
         summary.classList.remove('hidden');
         more.classList.remove('hidden');
-        button.classList.add('bg-slate-50');
+        button.classList.add('bg-sky-50');
       } else if (next === 'expanded') {
         content.classList.remove('hidden');
-        icon.classList.add('rotate-45');
-        button.classList.add('bg-sky-50');
+        button.classList.add('bg-slate-50');
       }
 
       const labels = {
