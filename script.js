@@ -15,15 +15,15 @@
       summary.classList.add('hidden');
       more.classList.add('hidden');
       content.classList.add('hidden');
-      button.classList.remove('bg-slate-50', 'bg-sky-50');
+      button.classList.remove('bg-sky-50', 'bg-slate-50');
 
       if (next === 'summary') {
         summary.classList.remove('hidden');
         more.classList.remove('hidden');
-        button.classList.add('bg-sky-50');
+        button.classList.add('bg-slate-50');
       } else if (next === 'expanded') {
         content.classList.remove('hidden');
-        button.classList.add('bg-slate-50');
+        button.classList.add('bg-sky-50');
       }
 
       const labels = {
