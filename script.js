@@ -41,9 +41,9 @@
       }
 
       const labels = {
-        collapsed: Show summary for ${title.textContent},
-        summary: Show full details for ${title.textContent},
-        expanded: Collapse ${title.textContent},
+        collapsed: `Show summary for ${title.textContent}`,
+        summary: `Show full details for ${title.textContent}`,
+        expanded: `Collapse ${title.textContent}`,
       };
 
       button.setAttribute('aria-expanded', String(next !== 'collapsed'));
