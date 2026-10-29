@@ -1,72 +1,485 @@
-(() => {
-  const sections = document.querySelectorAll('[data-section]');
+<!DOCTYPE html>
 
-  sections.forEach((section) => {
+<html>
+<head>
+<meta charset="utf-8"/>
+<link href="/favicon.png" rel="icon" type="image/png"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+      @theme {
+        --color-clifford: #da373d;
+      }
+	  @custom-variant hover (&:hover);
+    </style>
+<style>
+.job-details > summary::-webkit-details-marker { display: none; }
+@media print {
+  .job-details:not([open]) > .job-full-details { display: block !important; }
+  .job-details > summary { cursor: default; }
+}
+</style>
+</head>
+<body class="min-h-screen bg-slate-100 font-sans text-slate-900 antialiased selection:bg-sky-100 selection:text-sky-900 print:bg-white">
+<main class="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-12 print:max-w-none print:px-0 print:py-0">
+<header class="relative isolate overflow-hidden rounded-[2rem] border border-slate-800 bg-slate-950 px-6 py-8 text-white shadow-2xl sm:px-10 sm:py-10 lg:grid lg:grid-cols-[1fr_auto] lg:items-end lg:gap-10 lg:px-14 lg:py-12 print:rounded-none print:border-0 print:bg-white print:text-slate-900 print:shadow-none">
+<a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Hey%20Juli,%20let%27s%20chat%21&amp;add=juli.talvensaari%40gmail.com" target="_blank" rel="noopener noreferrer" class="absolute right-5 top-5 z-20 rounded-lg bg-cyan-300 px-3 py-2 text-xs font-semibold text-slate-950 transition-colors duration-200 hover:bg-orange-500 sm:right-6 sm:top-6 print:hidden">Let's meet!</a>
+<div aria-hidden="true" class="pointer-events-none absolute -right-24 -top-28 h-80 w-80 rounded-full bg-cyan-400/10 blur-3xl print:hidden"></div>
+<div aria-hidden="true" class="pointer-events-none absolute -bottom-32 left-1/3 h-72 w-72 rounded-full bg-sky-500/10 blur-3xl print:hidden"></div>
+<div class="relative z-10">
+<p class="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-cyan-300 print:text-sky-700">CRM · Automation · IT</p>
+<h1 class="font-display text-5xl font-semibold leading-[0.92] tracking-[-0.055em] text-white sm:text-6xl lg:text-7xl print:text-slate-950">Juli Talvensaari</h1>
+<p class="mt-5 max-w-3xl text-sm leading-7 text-slate-300 sm:text-base print:text-slate-600">
+          Ta’ Giorni, Malta <br/>
+<a class="font-medium text-white underline decoration-slate-500 underline-offset-4 transition hover:text-cyan-300 hover:decoration-cyan-300 print:text-slate-800" href="tel:+35677399626">+356 77399626</a> <br/>
+<a class="font-medium text-white underline decoration-slate-500 underline-offset-4 transition hover:text-cyan-300 hover:decoration-cyan-300 print:text-slate-800" href="mailto:juli.talvensaari@gmail.com">juli.talvensaari@gmail.com</a><br/>
+<a class="font-light text-[9px] text-grey italic">"if you're performing the same task more than a few times, you're doing the computer's job."</a>
+
+</p>
+</div>
+<div class="relative z-10 mt-8 hidden lg:block lg:min-w-56 print:hidden">
+<div class="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm">
+<p class="text-[10px] font-bold uppercase tracking-[0.22em] text-slate-400">Focus</p>
+<p class="mt-3 font-display text-2xl font-semibold tracking-tight text-white">CRM + Automation</p>
+<div class="mt-4 flex flex-wrap gap-2">
+<span class="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">Product</span>
+<span class="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">APIs</span>
+<span class="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-300">IT</span>
+</div>
+</div>
+</div>
+</header>
+<div class="mt-6 space-y-6">
+<section class="scroll-mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow duration-200 print:rounded-none print:border-x-0 print:border-t-0 print:shadow-none" data-section="Professional Profile" id="professional-profile">
+<button aria-controls="professional-profile-content" aria-expanded="false" class="section-toggle group w-full items-center gap-3 px-5 py-4 text-left transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-sky-500/15 sm:px-6 print:cursor-default print:hover:bg-transparent print:hover:shadow-none flex justify-between" type="button">
+<span class="section-title font-display text-sm font-bold uppercase tracking-[0.14em] text-sky-700">Professional Profile</span>
+
+
+</button><div class="section-summary-panel hidden border-t border-slate-100 px-5 pb-6 pt-5 text-[15px] flex justify-between items-start leading-7 text-slate-700 sm:px-6 print:hidden"><span class="section-summary hidden text-sm leading-6 text-slate-500 sm:text-[15px]">Hey there! I'm a technically minded CRM and automation specialist. I focus on solving repetitive processes by building reliable systems. In a new role, I first learn the basics and get familiar with my teams, tools and workflows. As pain points arise, I find way to mitigate them permanently; for myself, for my team, for the whole department.</span><span class="tell-more pl-2 min-w-fit hidden text-sm font-semibold text-sky-700 ml-auto transition mt-3 inline-flex cursor-pointer hover:text-sky-800" style=""> Tell me more <span aria-hidden="true">→</span></span></div>
+<div class="section-content hidden max-w-4xl border-t border-slate-100 px-5 pb-6 pt-5 text-[15px] leading-7 text-slate-700 sm:px-6 print:block print:border-t-0 print:px-0 print:pb-6 print:pt-0" id="professional-profile-content">
+<p class="mb-4 last:mb-0">I'm a CRM and automation specialist with a strong technical background across CRM technology, marketing automation, systems administration and IT operations. <br>Experienced in building automated workflows, API integrations, internal tools and scalable processes across multi-brand, multilingual environments. These often start as quick, ad-hoc tools and build features and robustness over time.</p>
+<p class="mb-4 last:mb-0">Technical problem-solving combined with campaign execution, documentation, training and team leadership. I am particularly strong at identifying repetitive or error-prone processes and turning them into reliable, automated workflows with in-house tools.</p>
+</div>
+</section>
+<section class="scroll-mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow duration-200 print:rounded-none print:border-x-0 print:border-t-0 print:shadow-none" data-section="Core Skills" id="core-skills">
+<button aria-controls="core-skills-content" aria-expanded="false" class="section-toggle group w-full items-center gap-3 px-5 py-4 text-left transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-sky-500/15 sm:px-6 print:cursor-default print:hover:bg-transparent print:hover:shadow-none flex justify-between" type="button">
+<span class="section-title font-display text-sm font-bold uppercase tracking-[0.14em] text-sky-700">Core Skills</span>
+
+
+</button><div class="section-summary-panel hidden border-t border-slate-100 px-5 pb-6 pt-5 text-[15px] leading-7 text-slate-700 sm:px-6 print:hidden"><span class="section-summary hidden text-sm leading-6 text-slate-500 sm:text-[15px]">CRM, Automation, APIs, QA, technical documentation, systems administration and team leadership.</span><span class="tell-more pl-2 min-w-fit hidden text-sm font-semibold text-sky-700 transition mt-3 inline-flex cursor-pointer hover:text-sky-800"> Tell me more <span aria-hidden="true">→</span></span></div>
+<div class="section-content hidden border-t border-slate-100 px-5 pb-6 pt-5 text-[15px] leading-7 text-slate-700 sm:px-6 print:block print:border-t-0 print:px-0 print:pb-6 print:pt-0" id="core-skills-content">
+<ul class="grid gap-x-8 gap-y-3 sm:grid-cols-2">
+<li class="relative pl-5 before:absolute before:left-0 before:top-[0.82rem] before:size-1.5 before:rounded-full before:bg-sky-500"><b>CRM technology &amp; lifecycle automation:</b> Symplify, Customer.io, Solitics, Optimove... I have worked with many CRM tools, both directly with execution and with config &amp; improvements. </li>
+<li class="relative pl-5 before:absolute before:left-0 before:top-[0.82rem] before:size-1.5 before:rounded-full before:bg-sky-500"><b>API integrations, webhooks &amp; Postman:</b> Many of my solutions are based on sending many requests at once through an API, instead of one by one through a GUI...</li>
+<li class="relative pl-5 before:absolute before:left-0 before:top-[0.82rem] before:size-1.5 before:rounded-full before:bg-sky-500"><b>Google Apps Script, JavaScript/RegEx &amp; spreadsheet automation:</b> ...but writing API requests is hard for less techy staff. That's where the Scripts and RegEx come in. I build tools for my colleagues; they never have to look at code.</li>
+<li class="relative pl-5 before:absolute before:left-0 before:top-[0.82rem] before:size-1.5 before:rounded-full before:bg-sky-500"><b>HTML, JSON &amp; technical content:</b> The API requests must be well formed, no matter what the user inputs. HTML must be responsive and robust to display widgets and content correctly on all devices.</li>
+<li class="relative pl-5 before:absolute before:left-0 before:top-[0.82rem] before:size-1.5 before:rounded-full before:bg-sky-500"><b>Customer segmentation &amp; campaign execution:</b> In CRM, these are absolutely crucial. Mistakes can be very costly, so precision is non-negotiable.</li>
+<li class="relative pl-5 before:absolute before:left-0 before:top-[0.82rem] before:size-1.5 before:rounded-full before:bg-sky-500"><b>QA, troubleshooting &amp; process improvement:</b> The way I see it, no process is ever truly finished. There's always something that can be made easier, faster, or more reliable.</li>
+<li class="relative pl-5 before:absolute before:left-0 before:top-[0.82rem] before:size-1.5 before:rounded-full before:bg-sky-500"><b>Jira administration, workflows &amp; automation:</b> Work as the sole Jira admin has let me use practically the whole toolset, for all kinds of Jira projects. </li>
+<li class="relative pl-5 before:absolute before:left-0 before:top-[0.82rem] before:size-1.5 before:rounded-full before:bg-sky-500"><b>Technical documentation &amp; training:</b> Fancy tools are worth nothing if people can't use them. Training is ephemeral if not written down.</li>
+<li class="relative pl-5 before:absolute before:left-0 before:top-[0.82rem] before:size-1.5 before:rounded-full before:bg-sky-500"><b>Team leadership &amp; mentoring:</b> I lead teams and encourage my team to make tools and systems of their own.</li>
+<li class="relative pl-5 before:absolute before:left-0 before:top-[0.82rem] before:size-1.5 before:rounded-full before:bg-sky-500"><b>Systems administration, networking &amp; information security:</b> A decade of work in IT adjacent roles.</li>
+<li class="relative pl-5 before:absolute before:left-0 before:top-[0.82rem] before:size-1.5 before:rounded-full before:bg-sky-500"><b>English &amp; Finnish:</b> Fully fluent in both. I recreationally enjoy etymology and orthography.</li>
+</ul>
+</div>
+</section>
+<section class="scroll-mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow duration-200 print:rounded-none print:border-x-0 print:border-t-0 print:shadow-none" data-section="Professional Experience" id="professional-experience">
+<button aria-controls="professional-experience-content" aria-expanded="false" class="section-toggle group w-full items-center gap-3 px-5 py-4 text-left transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-sky-500/15 sm:px-6 print:cursor-default print:hover:bg-transparent print:hover:shadow-none flex justify-between" type="button">
+<span class="section-title font-display text-sm font-bold uppercase tracking-[0.14em] text-sky-700">Professional Experience</span>
+
+
+</button><div class="section-summary-panel hidden border-t border-slate-100 px-5 pb-6 pt-5 text-[15px] leading-7 text-slate-700 sm:px-6 print:hidden"><span class="section-summary hidden text-sm leading-6 text-slate-500 sm:text-[15px]">I'm a CRM Product Manager working at The Multiple since March 2026, with 15+ years spanning CRM product, marketing automation, systems administration, IT operations and team leadership.</span><span class="tell-more pl-2 min-w-fit hidden text-sm font-semibold text-sky-700 transition mt-3 inline-flex cursor-pointer hover:text-sky-800"> Tell me more <span aria-hidden="true">→</span></span></div>
+<div class="section-content hidden border-t border-slate-100 px-5 pb-6 pt-5 text-[15px] leading-7 text-slate-700 sm:px-6 print:block print:border-t-0 print:px-0 print:pb-6 print:pt-0" id="professional-experience-content">
+<div class="space-y-8">
+<article class="border-b border-slate-200 pb-6 last:border-b-0 last:pb-0 sm:pb-8">
+<details class="job-details group">
+<summary class="cursor-pointer list-none rounded-xl outline-none transition hover:bg-slate-50 focus-visible:ring-4 focus-visible:ring-sky-500/15">
+<div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+<div>
+<h3 class="font-display text-xl font-semibold tracking-tight text-slate-950">The Multiple</h3>
+<p class="mt-1 font-semibold text-sky-700">CRM Product Manager</p>
+</div>
+<time class="inline-flex w-fit shrink-0 rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold whitespace-nowrap text-slate-600">Mar 2026 – Present</time>
+</div>
+<div class="flex items-start gap-3 px-2 pb-3">
+<span class="mt-1 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-xs font-bold text-sky-700 transition group-open:rotate-90" aria-hidden="true">›</span>
+<div class="min-w-0 flex-1"><p class="mb-0 text-sm leading-6 text-slate-600">Technical and product-focused CRM role covering nine brands. Responsible for CRM systems, integrations, third party alignment, automation, QA, documentation and team enablement.</p></div>
+</div>
+</summary>
+<div class="job-full-details mt-2 border-l-2 border-slate-200 pl-5 sm:ml-2 sm:pl-6">
+<ul class="space-y-2 pl-5 marker:text-slate-400">
+<li class="pl-1"><strong> Responsibilities</strong>
+
+<li class="pl-1">CRM product and technical work ownership across platforms including Solitics, Customer.io, Dynamic Messaging, Brevo, Typeform and SoftSwiss.</li>
+<li class="pl-1">Built and maintained HTML email components, API integrations, dynamic content, bonus-awarding functionality, landing pages, SMS tooling and reusable content snippets.</li>
+<li class="pl-1">Primary point of contact for QA and product-management with Solitics and other third parties. Co-ordinating releases, features, integrations and technical fixes.</li>
+<li class="pl-1">Set up gamification functionality including missions and widgets.</li>
+<li class="pl-1">Created documentation and training material, delivered training across multiple teams in CRM and beyond.</li>
+<li class="pl-1">Built and maintained reusable CRM resources, including a centralised snippets library, HTML widgets, journey templates, and emails with dynamic, time-based content.</li>
+
+<li class="pl-1"><strong>Results</strong>
+<li class="pl-1">Created 28+ day automated customer journeys for new-player onboarding and inactive-player reactivation across nine brands, using segmentation and lifecycle logic. <strong><br> • Player reactivation increased >20%.<br> •  FTD volume increased by up to 50% on brands.</strong> </li>
+<li class="pl-1">Developed an SMS webhook builder and API tooling, including content sanitisation and troubleshooting. Until this, CRM was manually writing API calls or just avoiding using SMS. <br> • Identified and resolved an issue causing content corruption in multipart SMS messages.</li>
+<li class="pl-1">Worked with email authentication and deliverability technologies including DMARC, DKIM and BIMI, as well as anti-spam and bounce-management tooling like GlockApps and SendPost. <strong><br> • 98% reduction in bounced emails.<br> • 10-20% increase in passing spam filters and reaching inbox.</strong></li>
+
+</ul>
+<p class="mt-5 rounded-xl border-l-4 border-sky-500 bg-sky-50 px-4 py-3 text-sm leading-6 text-slate-700"><strong class="font-semibold text-sky-800">Key technologies:</strong> Solitics, Customer.io, Dynamic Messaging, Brevo, Typeform, SoftSwiss, Monday, GlockApps, HTML, CMS, APIs, webhooks, DMARC, DKIM, BIMI.</p>
+</div>
+</details>
+</article>
+<article class="border-b border-slate-200 pb-6 last:border-b-0 last:pb-0 sm:pb-8">
+<details class="job-details group">
+<summary class="cursor-pointer list-none rounded-xl outline-none transition hover:bg-slate-50 focus-visible:ring-4 focus-visible:ring-sky-500/15">
+<div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+<div>
+<h3 class="font-display text-xl font-semibold tracking-tight text-slate-950">HighRoller</h3>
+<p class="mt-1 font-semibold text-sky-700">CRM Specialist</p>
+</div>
+<time class="inline-flex w-fit shrink-0 rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold whitespace-nowrap text-slate-600">Sep 2025 – Feb 2026</time>
+</div>
+<div class="flex items-start gap-3 px-2 pb-3">
+<span class="mt-1 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-xs font-bold text-sky-700 transition group-open:rotate-90" aria-hidden="true">›</span>
+<div class="min-w-0 flex-1"><p class="mb-0 text-sm leading-6 text-slate-600">Technical and creative CRM role focused on automation, campaign execution, bonus management, integrations, QA and internal tooling.</p></div>
+</div>
+</summary>
+<div class="job-full-details mt-2 border-l-2 border-slate-200 pl-5 sm:ml-2 sm:pl-6">
+<ul class="space-y-2 pl-5 marker:text-slate-400">
+<li class="pl-1"><strong>Responsibilities</strong>
+<li class="pl-1">Built recurring automated campaigns in Flows.world for onboarding, churn prevention and other lifecycle use cases.</li>
+<li class="pl-1">Integrated CRM workflows with back-office and communications platforms using API requests, logging, debugging and automated error reporting.</li>
+<li class="pl-1">Configured interactive on-site campaigns and pop-ups using Flows Wave.</li>
+<li class="pl-1">Built a Google Sheets/Apps Script automation system for creating, validating, activating and updating bonuses at scale.</li>
+<li class="pl-1"><b>Created Postman request suites to execute automated CRM and bonus-management workflows.</b></li>
+<li class="pl-1">Developed automated QA checks to identify unexpected bonus values and inactive upcoming bonuses.</li>
+<li class="pl-1">Established and administered the CRM Jira project, including workflows, issue types, custom fields, automations, filters and boards.</li>
+<li class="pl-1">Created promotional pages using inline HTML and produced English and Finnish copy for email, SMS and web communications.</li>
+<li class="pl-1">Managed campaign segmentation, scheduling, execution and QA across multiple brands.</li>
+<li class="pl-1"><strong>Milestones</strong>
+<li class="pl-1">My automated API request builder reduces time to create a bonus from 5-15min/bonus to 1-10minutes per batch of up to 10 bonuses.
+<li class="pl-1">The "upcoming inactive bonus" alert system prevented several campaigns from launching without full activation every month.
+
+</ul>
+<p class="mt-5 rounded-xl border-l-4 border-sky-500 bg-sky-50 px-4 py-3 text-sm leading-6 text-slate-700"><strong class="font-semibold text-sky-800">Key technologies:</strong> Optimove, Pragmatic Solutions, Flows.world, Flows Wave, Postman, Google Sheets, Google Apps Script, Jira, HTML, JSON.</p>
+</div>
+</details>
+</article>
+<article class="border-b border-slate-200 pb-6 last:border-b-0 last:pb-0 sm:pb-8">
+<details class="job-details group">
+<summary class="cursor-pointer list-none rounded-xl outline-none transition hover:bg-slate-50 focus-visible:ring-4 focus-visible:ring-sky-500/15">
+<div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+<div>
+<h3 class="font-display text-xl font-semibold tracking-tight text-slate-950">Soft2Bet</h3>
+<p class="mt-1 font-semibold text-sky-700">CRM Service Manager</p>
+</div>
+<time class="inline-flex w-fit shrink-0 rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold whitespace-nowrap text-slate-600">Mar 2023 – Sep 2025</time>
+</div>
+<div class="flex items-start gap-3 px-2 pb-3">
+<span class="mt-1 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-xs font-bold text-sky-700 transition group-open:rotate-90" aria-hidden="true">›</span>
+<div class="min-w-0 flex-1"><p class="mb-0 text-sm leading-6 text-slate-600">Technical CRM role supporting 40+ languages and 200+ active brands, with responsibility for automation, CRM tooling, bonus management, QA, training and team leadership.</p></div>
+</div>
+</summary>
+<div class="job-full-details mt-2 border-l-2 border-slate-200 pl-5 sm:ml-2 sm:pl-6">
+<ul class="space-y-2 pl-5 marker:text-slate-400">
+<li class="pl-1"><strong>Responsibilities</strong>
+<li class="pl-1">Developed and maintained Google Apps Script and spreadsheet tools capable of generating and populating large volumes of campaign content automatically.</li>
+<li class="pl-1">Created Postman API suites for creating and editing snippets, triggering campaigns, testing bonuses and uploading assets.</li>
+<li class="pl-1">Managed and continuously improved a large-scale CRM Snippet Library used for multilingual campaign production.</li>
+<li class="pl-1">Developed automated proofreading and validation checks covering typos, line breaks, unsupported SMS characters, currency formatting and language detection.</li>
+<li class="pl-1">Automated banner URL validation, language assignment, currency conversion and snippet generation.</li>
+<li class="pl-1">Created automated bonus naming and game/provider availability checks to reduce errors and manual investigation.</li>
+<li class="pl-1">Designed Jira boards, filters and workflows for bonus, QA and campaign execution teams.</li>
+<li class="pl-1">Created CRM documentation, technical guides, QA checklists and training materials, often supported by walkthrough videos.</li>
+<li class="pl-1">Delivered training to colleagues and overseas teams and became a key technical knowledge resource within CRM.</li>
+<li class="pl-1">Managed and mentored team members, supporting onboarding, development and workload management.</li>
+<li class="pl-1"><strong>Results</strong>
+<li class="pl-1">Built automation that saves the CRM department dozens of hours each week by replacing repetitive manual processes.</li>
+<li class="pl-1">Reduced campaign banner URL management from 150+ individual snippets to a single dynamic snippet through automation.</li>
+</ul>
+<p class="mt-5 rounded-xl border-l-4 border-sky-500 bg-sky-50 px-4 py-3 text-sm leading-6 text-slate-700"><strong class="font-semibold text-sky-800">Key technologies:</strong> Google Apps Script, Google Sheets, Excel, Postman, Symplify, Cloudinary, Jira, Confluence, Optimove, internal back-office systems.</p>
+</div>
+</details>
+</article>
+<article class="border-b border-slate-200 pb-6 last:border-b-0 last:pb-0 sm:pb-8">
+<details class="job-details group">
+<summary class="cursor-pointer list-none rounded-xl outline-none transition hover:bg-slate-50 focus-visible:ring-4 focus-visible:ring-sky-500/15">
+<div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+<div>
+<h3 class="font-display text-xl font-semibold tracking-tight text-slate-950">Red Acre Ltd.</h3>
+<p class="mt-1 font-semibold text-sky-700">Systems Administrator</p>
+</div>
+<time class="inline-flex w-fit shrink-0 rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold whitespace-nowrap text-slate-600">Aug 2022 – Feb 2023</time>
+</div>
+<div class="flex items-start gap-3 px-2 pb-3">
+<span class="mt-1 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-xs font-bold text-sky-700 transition group-open:rotate-90" aria-hidden="true">›</span>
+<div class="min-w-0 flex-1"><p class="mb-0 text-sm leading-6 text-slate-600">Managed corporate IT infrastructure, identity and access, endpoint security, monitoring and audit support.</p></div>
+</div>
+</summary>
+<div class="job-full-details mt-2 border-l-2 border-slate-200 pl-5 sm:ml-2 sm:pl-6">
+<ul class="space-y-2 pl-5 marker:text-slate-400">
+<li class="pl-1">Administered LAN/WLAN infrastructure and migrated networking from SonicWall to UniFi.</li>
+<li class="pl-1">Managed Azure, Exchange, SSO and SCIM provisioning.</li>
+<li class="pl-1">Implemented security-key authentication for Microsoft 365 accounts and Windows devices.</li>
+<li class="pl-1">Maintained Windows Server, DNS and Zabbix monitoring infrastructure.</li>
+<li class="pl-1">Administered Jira and implemented access-control processes.</li>
+<li class="pl-1">Supported ISO 27001 audit preparation and maintained SaaS inventory.</li>
+<li class="pl-1">Provided internal IT support and collaborated with the wider IT team.</li>
+</ul>
+</div>
+</details>
+</article>
+<article class="border-b border-slate-200 pb-6 last:border-b-0 last:pb-0 sm:pb-8">
+<details class="job-details group">
+<summary class="cursor-pointer list-none rounded-xl outline-none transition hover:bg-slate-50 focus-visible:ring-4 focus-visible:ring-sky-500/15">
+<div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+<div>
+<h3 class="font-display text-xl font-semibold tracking-tight text-slate-950">Run It Once Ltd.</h3>
+<p class="mt-1 font-semibold text-sky-700">Systems Administrator</p>
+</div>
+<time class="inline-flex w-fit shrink-0 rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold whitespace-nowrap text-slate-600">Sep 2020 – Aug 2022</time>
+</div>
+<div class="flex items-start gap-3 px-2 pb-3">
+<span class="mt-1 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-xs font-bold text-sky-700 transition group-open:rotate-90" aria-hidden="true">›</span>
+<div class="min-w-0 flex-1"><p class="mb-0 text-sm leading-6 text-slate-600">Administered Windows and Linux systems, networking, monitoring, access controls and technical documentation.</p></div>
+</div>
+</summary>
+<div class="job-full-details mt-2 border-l-2 border-slate-200 pl-5 sm:ml-2 sm:pl-6">
+<ul class="space-y-2 pl-5 marker:text-slate-400">
+<li class="pl-1">Managed Windows Server and Ubuntu environments, Active Directory and network infrastructure.</li>
+<li class="pl-1">Built and automated asset-management and access-control systems.</li>
+<li class="pl-1">Maintained Cloudflare, OPNsense, SonicWall and UniFi environments.</li>
+<li class="pl-1">Implemented monitoring using Zabbix and Kibana.</li>
+<li class="pl-1">Created knowledge bases and delivered internal technical training.</li>
+<li class="pl-1">Supported information-security and UKGC audit preparation.</li>
+<li class="pl-1">Managed DevOps/SysAdmin Jira workflows and liaised with external suppliers.</li>
+</ul>
+</div>
+</details>
+</article>
+<article class="border-b border-slate-200 pb-6 last:border-b-0 last:pb-0 sm:pb-8">
+<details class="job-details group">
+<summary class="cursor-pointer list-none rounded-xl outline-none transition hover:bg-slate-50 focus-visible:ring-4 focus-visible:ring-sky-500/15">
+<div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+<div>
+<h3 class="font-display text-xl font-semibold tracking-tight text-slate-950">MrGreen Ltd. / William Hill International</h3>
+<p class="mt-1 font-semibold text-sky-700">Senior IT Administrator / IT Team Lead</p>
+</div>
+<time class="inline-flex w-fit shrink-0 rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold whitespace-nowrap text-slate-600">Feb 2018 – Aug 2020</time>
+</div>
+<div class="flex items-start gap-3 px-2 pb-3">
+<span class="mt-1 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-xs font-bold text-sky-700 transition group-open:rotate-90" aria-hidden="true">›</span>
+<div class="min-w-0 flex-1"><p class="mb-0 text-sm leading-6 text-slate-600">Led end-user computing support for around 400 users, combining IT operations, automation and team coordination.</p></div>
+</div>
+</summary>
+<div class="job-full-details mt-2 border-l-2 border-slate-200 pl-5 sm:ml-2 sm:pl-6">
+<ul class="space-y-2 pl-5 marker:text-slate-400">
+<li class="pl-1">Led the Malta End User Computing team and provided IT support for approximately 400 users.</li>
+<li class="pl-1">Managed Active Directory, user access, onboarding, hardware/software, procurement and office infrastructure.</li>
+<li class="pl-1">Developed PowerShell scripts and modules to automate administrative tasks.</li>
+<li class="pl-1">Delivered User Access Control training in Malta and the UK.</li>
+<li class="pl-1">Acted as a bridge between technical teams and business stakeholders.</li>
+<li class="pl-1">Managed third-party systems, IT documentation and office physical security.</li>
+</ul>
+</div>
+</details>
+</article>
+<article class="border-b border-slate-200 pb-6 last:border-b-0 last:pb-0 sm:pb-8">
+<details class="job-details group">
+<summary class="cursor-pointer list-none rounded-xl outline-none transition hover:bg-slate-50 focus-visible:ring-4 focus-visible:ring-sky-500/15">
+<div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+<div>
+<h3 class="font-display text-xl font-semibold tracking-tight text-slate-950">Betsson Group</h3>
+<p class="mt-1 font-semibold text-sky-700">NOC Engineer</p>
+</div>
+<time class="inline-flex w-fit shrink-0 rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold whitespace-nowrap text-slate-600">Apr 2015 – Jan 2018</time>
+</div>
+<div class="flex items-start gap-3 px-2 pb-3">
+<span class="mt-1 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-xs font-bold text-sky-700 transition group-open:rotate-90" aria-hidden="true">›</span>
+<div class="min-w-0 flex-1"><p class="mb-0 text-sm leading-6 text-slate-600">Monitored network and server environments, resolved incidents and improved monitoring and technical support processes.</p></div>
+</div>
+</summary>
+<div class="job-full-details mt-2 border-l-2 border-slate-200 pl-5 sm:ml-2 sm:pl-6">
+<ul class="space-y-2 pl-5 marker:text-slate-400">
+<li class="pl-1">Monitored and troubleshot network infrastructure and managed technical incidents.</li>
+<li class="pl-1">Performed root-cause analysis and created monitoring alerts and dashboards.</li>
+<li class="pl-1">Supported server administration, basic SQL operations and user-account administration.</li>
+<li class="pl-1">Liaised with third parties and acted as a point of contact for non-technical teams.</li>
+</ul>
+</div>
+</details>
+</article>
+</div>
+</div>
+</section>
+<section class="scroll-mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow duration-200 print:rounded-none print:border-x-0 print:border-t-0 print:shadow-none" data-section="Earlier Experience" id="earlier-experience">	
+<button aria-controls="earlier-experience-content" aria-expanded="false" class="section-toggle group w-full items-center gap-3 px-5 py-4 text-left transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-sky-500/15 sm:px-6 print:cursor-default print:hover:bg-transparent print:hover:shadow-none flex justify-between" type="button">
+<span class="section-title font-display text-sm font-bold uppercase tracking-[0.14em] text-sky-700">Earlier Experience</span>
+
+
+</button><div class="section-summary-panel hidden border-t border-slate-100 px-5 pb-6 pt-5 text-[15px] leading-7 text-slate-700 sm:px-6 print:hidden"><span class="section-summary hidden text-sm leading-6 text-slate-500 sm:text-[15px]">Early career experience across customer support, technical support, sales support and operations.</span><span class="tell-more pl-2 min-w-fit hidden text-sm font-semibold text-sky-700 transition mt-3 inline-flex cursor-pointer hover:text-sky-800"> Tell me more <span aria-hidden="true">→</span></span></div>
+<div class="section-content hidden border-t border-slate-100 px-5 pb-6 pt-5 text-[15px] leading-7 text-slate-700 sm:px-6 print:block print:border-t-0 print:px-0 print:pb-6 print:pt-0" id="earlier-experience-content">
+<div class="grid gap-6 md:grid-cols-2">
+<div class="border-t border-slate-200 pt-4">
+<strong class="block font-display text-base font-semibold text-slate-950">Cook Medical Europe</strong>
+<span class="mt-1 block text-sm font-semibold text-sky-700">Tenders, Customer Service &amp; Sales Support · 2014–2015</span>
+<p class="mt-2 text-sm leading-6 text-slate-500">Order processing, customer support, billing, inventory coordination, procurement and multilingual support.</p>
+</div>
+<div class="border-t border-slate-200 pt-4">
+<strong class="block font-display text-base font-semibold text-slate-950">Xerox Europe</strong>
+<span class="mt-1 block text-sm font-semibold text-sky-700">Service Assurance Representative · 2013–2014</span>
+<p class="mt-2 text-sm leading-6 text-slate-500">Technical and hardware support for Xerox devices via phone, email and automated alerts.</p>
+</div>
+<div class="border-t border-slate-200 pt-4">
+<strong class="block font-display text-base font-semibold text-slate-950">Stream</strong>
+<span class="mt-1 block text-sm font-semibold text-sky-700">B2C Technical Support / Finnish Team Mentor · 2013</span>
+<p class="mt-2 text-sm leading-6 text-slate-500">Technical support for Microsoft Surface devices; managed a six-person Finnish team and mentored a wider 100+ person team.</p>
+</div>
+<div class="border-t border-slate-200 pt-4">
+<strong class="block font-display text-base font-semibold text-slate-950">Manpower / IBM</strong>
+<span class="mt-1 block text-sm font-semibold text-sky-700">Central Technical Support · 2011–2013</span>
+<p class="mt-2 text-sm leading-6 text-slate-500">B2B technical support for major accounts. Received multiple Agent of the Month awards for productivity, first-call resolution and customer satisfaction. Also served as Fire Warden for approximately 100 staff.</p>
+</div>
+<div class="border-t border-slate-200 pt-4">
+<strong class="block font-display text-base font-semibold text-slate-950">Northern Lights Restaurant</strong>
+<span class="mt-1 block text-sm font-semibold text-sky-700">Senior Bar Staff · 2008–2011</span>
+<p class="mt-2 text-sm leading-6 text-slate-500">Customer service, bookings, banking, deliveries and general operations.</p>
+</div>
+</div>
+</div>
+</section>
+<div class="pt-6 grid items-start gap-6 lg:grid-cols-[minmax(0,1.3fr)_minmax(18rem,0.7fr)]">
+<section class="scroll-mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow duration-200 print:rounded-none print:border-x-0 print:border-t-0 print:shadow-none" data-section="Technical Skills" id="technical-skills">
+<button aria-controls="technical-skills-content" aria-expanded="false" class="section-toggle group w-full items-center gap-3 px-5 py-4 text-left transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-sky-500/15 sm:px-6 print:cursor-default print:hover:bg-transparent print:hover:shadow-none flex justify-between" type="button">
+<span class="section-title font-display text-sm font-bold uppercase tracking-[0.14em] text-sky-700">Technical Skills</span>
+
+
+</button><div class="section-summary-panel hidden border-t border-slate-100 px-5 pb-6 pt-5 text-[15px] leading-7 text-slate-700 sm:px-6 print:hidden"><span class="section-summary hidden text-sm leading-6 text-slate-500 sm:text-[15px]">A broad technical toolkit spanning development, CRM platforms, APIs, infrastructure, monitoring and ITSM.</span><span class="tell-more pl-2 min-w-fit hidden text-sm font-semibold text-sky-700 transition mt-3 inline-flex cursor-pointer hover:text-sky-800"> Tell me more <span aria-hidden="true">→</span></span></div>
+<div class="section-content hidden border-t border-slate-100 px-5 pb-6 pt-5 text-[15px] leading-7 text-slate-700 sm:px-6 print:block print:border-t-0 print:px-0 print:pb-6 print:pt-0" id="technical-skills-content">
+<dl class="divide-y divide-slate-200">
+<div class="grid gap-2 py-4 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-6"><dt class="font-semibold text-slate-950">Automation &amp; Development</dt><dd class="m-0 text-slate-500">Google Apps Script, JavaScript, RegEx, PowerShell, C++</dd></div>
+<div class="grid gap-2 py-4 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-6"><dt class="font-semibold text-slate-950">CRM &amp; Marketing</dt><dd class="m-0 text-slate-500">Solitics, Customer.io, Dynamic Messaging, Brevo, Optimove, Symplify, Acoustic</dd></div>
+<div class="grid gap-2 py-4 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-6"><dt class="font-semibold text-slate-950">APIs &amp; Data</dt><dd class="m-0 text-slate-500">Postman, REST/API workflows, JSON, webhooks, Google Sheets, Excel</dd></div>
+<div class="grid gap-2 py-4 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-6"><dt class="font-semibold text-slate-950">Web</dt><dd class="m-0 text-slate-500">HTML, CMS, Cloudflare</dd></div>
+<div class="grid gap-2 py-4 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-6"><dt class="font-semibold text-slate-950">IT &amp; Infrastructure</dt><dd class="m-0 text-slate-500">Windows Server, Ubuntu, Active Directory, Azure, Exchange, DNS, UniFi, SonicWall, OPNsense</dd></div>
+<div class="grid gap-2 py-4 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-6"><dt class="font-semibold text-slate-950">Monitoring</dt><dd class="m-0 text-slate-500">Zabbix, Kibana, Splunk, Orion, AppDynamics, Apica</dd></div>
+<div class="grid gap-2 py-4 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-6"><dt class="font-semibold text-slate-950">ITSM / Collaboration</dt><dd class="m-0 text-slate-500">Jira, Confluence, ServiceNow, Maximo, Monday, Asana</dd></div>
+<div class="grid gap-2 py-4 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-6"><dt class="font-semibold text-slate-950">Other</dt><dd class="m-0 text-slate-500">Git/VS Code, Jenkins, SendGrid, Mailjet, Cloudinary</dd></div>
+</dl>
+</div>
+</section>
+<aside class="space-y-6">
+<section class="scroll-mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow duration-200 print:rounded-none print:border-x-0 print:border-t-0 print:shadow-none" data-section="Education" id="education">
+<button aria-controls="education-content" aria-expanded="false" class="section-toggle group w-full items-center gap-3 px-5 py-4 text-left transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-sky-500/15 sm:px-6 print:cursor-default print:hover:bg-transparent print:hover:shadow-none flex justify-between" type="button">
+<span class="section-title font-display text-sm font-bold uppercase tracking-[0.14em] text-sky-700">Education</span>
+
+
+</button><div class="section-summary-panel hidden border-t border-slate-100 px-5 pb-6 pt-5 text-[15px] leading-7 text-slate-700 sm:px-6 print:hidden"><span class="section-summary hidden text-sm leading-6 text-slate-500 sm:text-[15px]">Computer Games Technology studies at the University of Portsmouth, plus mathematics, physics and computing qualifications.</span><span class="tell-more pl-2 min-w-fit hidden text-sm font-semibold text-sky-700 transition mt-3 inline-flex cursor-pointer hover:text-sky-800"> Tell me more <span aria-hidden="true">→</span></span></div>
+<div class="section-content hidden border-t border-slate-100 px-5 pb-6 pt-5 text-[15px] leading-7 text-slate-700 sm:px-6 print:block print:border-t-0 print:px-0 print:pb-6 print:pt-0" id="education-content">
+<div class="space-y-2">
+<h3 class="font-display text-xl font-semibold tracking-tight text-slate-950">University of Portsmouth</h3>
+<p class="font-semibold text-sky-700">BSc Computer Games Technology</p>
+<p class="text-sm leading-6 text-slate-600">Three years completed. Coursework included C++, DirectX, 3DS Max, Adobe Photoshop and game design.</p>
+<p class="text-sm leading-6 text-slate-600"><strong>A Levels:</strong> Mathematics, Physics, Computing</p>
+<p class="text-sm leading-6 text-slate-600"><strong>AS Levels:</strong> Further Mathematics, Politics, Biology</p>
+<p class="text-sm leading-6 text-slate-600"><strong>UK Senior Maths Challenge:</strong> Gold Award; Best in College</p>
+</div>
+</div>
+</section>
+<section class="scroll-mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow duration-200 print:rounded-none print:border-x-0 print:border-t-0 print:shadow-none" data-section="Languages" id="languages">
+<button aria-controls="languages-content" aria-expanded="false" class="section-toggle group w-full items-center gap-3 px-5 py-4 text-left transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-sky-500/15 sm:px-6 print:cursor-default print:hover:bg-transparent print:hover:shadow-none flex justify-between" type="button">
+<span class="section-title font-display text-sm font-bold uppercase tracking-[0.14em] text-sky-700">Languages</span>
+
+
+</button><div class="section-summary-panel hidden border-t border-slate-100 px-5 pb-6 pt-5 text-[15px] leading-7 text-slate-700 sm:px-6"><span class="section-summary hidden text-sm leading-6 text-slate-500 sm:text-[15px]">Native Finnish and English.</span></span></div>
+</section>
+<section class="scroll-mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow duration-200 print:rounded-none print:border-x-0 print:border-t-0 print:shadow-none" data-section="Additional Information" id="additional-information">
+<button aria-controls="additional-information-content" aria-expanded="false" class="section-toggle group w-full items-center gap-3 px-5 py-4 text-left transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-sky-500/15 sm:px-6 print:cursor-default print:hover:bg-transparent print:hover:shadow-none flex justify-between" type="button">
+<span class="section-title font-display text-sm font-bold uppercase tracking-[0.14em] text-sky-700">Additional Information</span>
+
+
+</button><div class="section-summary-panel hidden border-t border-slate-100 px-5 pb-6 pt-5 text-[15px] leading-7 text-slate-700 sm:px-6"><span class="section-summary hidden text-sm leading-6 text-slate-500 sm:text-[15px]">Four-week notice period; references available on request.</span></span></div>
+</section>
+<section class="scroll-mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-shadow duration-200 print:rounded-none print:border-x-0 print:border-t-0 print:shadow-none" data-section="Interests" id="interests">
+<button aria-controls="interests-content" aria-expanded="false" class="section-toggle group w-full items-center gap-3 px-5 py-4 text-left transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-sky-500/15 sm:px-6 print:cursor-default print:hover:bg-transparent print:hover:shadow-none flex justify-between" type="button">
+<span class="section-title font-display text-sm font-bold uppercase tracking-[0.14em] text-sky-700">Interests</span>
+
+
+</button><div class="section-summary-panel hidden border-t border-slate-100 px-5 pb-6 pt-5 text-[15px] leading-7 text-slate-700 sm:px-6 print:hidden"><span class="section-summary hidden text-sm leading-6 text-slate-500 sm:text-[15px]">Rugby, trekking, languages, chess, games, juggling, fitness, game development and skydiving.</span><span class="tell-more pl-2 min-w-fit hidden text-sm font-semibold text-sky-700 transition mt-3 inline-flex cursor-pointer hover:text-sky-800"> Tell me more <span aria-hidden="true">→</span></span></div>
+<div class="section-content hidden border-t border-slate-100 px-5 pb-6 pt-5 text-[15px] leading-7 text-slate-700 sm:px-6 print:block print:border-t-0 print:px-0 print:pb-6 print:pt-0" id="interests-content">
+<p class="max-w-2xl text-slate-600">I play Rugby Union with Swieqi Overseas. I'm a forward - lock or flanker.<br> <b>Trekking</b> in nature with groups or just my dog relaxes me. In February 2026 I walked from one end of Malta to the other; a good 37km<br><b>Languages:</b> I love languages, etymology and casual linguistics. I can get by in Turkish, Italian, and the conlang Toki Pona. <br><b> Chess:</b> Too strong to play against newbies, too weak to play against "real" chess players ;) <br><b>Games:</b> I enjoy roguelikes, card games, and logistics puzzles. Factorio, Slay The Spire Balatro, and the occasional match of Starcraft are my go-tos. <br><b> Juggling:</b> I do 5 minutes here and there to relax or focus. I'm learning "The Box" next. <br><b> Running</b> is my fitness. At night or in blazing heat. <br>I developed a small game for PlayStation 2, way back when the PS2 was relevant. <br> I hold a BPA A-license in skydiving and have around 50 jumps.</p>
+</div>
+</section>
+</aside>
+</div>
+</div>
+<footer class="mt-6 flex flex-col gap-2 border-t border-slate-200 px-1 pt-5 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between print:hidden">
+<span>Get in touch! <br/><a href="mailto:juli.talvensaari@gmail.com">Email</a> · <a href="https://linkedin.com/in/julitalvensaari?utm_source=juliswebsite">LinkedIn </a> · <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Hey%20Juli,%20let%27s%20chat%21&amp;add=juli.talvensaari%40gmail.com" target="_blank" rel="noopener noreferrer">Google Meet</a>   <br/> <button type="button" onclick="window.print()" class="mt-1 cursor-pointer underline underline-offset-2 hover:text-slate-600">I'm Printer Friendly!</button></span></span></span>
+<span>Juli Talvensaari</span>
+<span>CRM · Automation · IT</span>
+</footer>
+</main>
+<script defer="" src="script.js"></script>
+<script>
+(() => {
+  const summaryOnlyIds = new Set(['languages', 'additional-information']);
+  const technicalId = 'technical-skills';
+  const interestsId = 'interests';
+
+  function setState(section, open, mode) {
     const button = section.querySelector('.section-toggle');
     const summaryPanel = section.querySelector('.section-summary-panel');
-    const summary = section.querySelector('.section-summary');
-    const more = section.querySelector('.tell-more');
     const content = section.querySelector('.section-content');
-    const title = section.querySelector('.section-title');
-    let state = 'collapsed';
+    const summary = section.querySelector('.section-summary');
+    const tellMore = section.querySelector('.tell-more');
+    if (!button) return;
 
-    const setState = (next) => {
-      state = next;
+    button.setAttribute('aria-expanded', String(open));
+    if (summaryPanel) summaryPanel.classList.toggle('hidden', !open || mode === 'full');
+    if (summary) summary.classList.toggle('hidden', !open || mode === 'full');
+    if (tellMore) tellMore.classList.toggle('hidden', !(section.id === 'interests' && open && mode === 'summary'));
+    if (content) content.classList.toggle('hidden', !open || mode !== 'full');
+  }
 
-      summaryPanel.classList.add('hidden');
-      summary.classList.add('hidden');
-      more.classList.add('hidden');
-      content.classList.add('hidden');
+  function init() {
+    const technical = document.getElementById(technicalId);
+    if (technical && window.matchMedia('(min-width: 1024px)').matches) {
+      setState(technical, true, 'full');
+    }
 
-      button.classList.remove(
-        'bg-sky-50',
-        'bg-slate-50',
-        'hover:bg-sky-50',
-        'hover:bg-slate-50'
-      );
+    document.addEventListener('click', (event) => {
+      const button = event.target.closest('.section-toggle');
+      if (!button) return;
+      const section = button.closest('section');
+      if (!section) return;
+      const id = section.id;
+      if (id !== technicalId && !summaryOnlyIds.has(id) && id !== interestsId) return;
 
-      if (next === 'summary') {
-        summaryPanel.classList.remove('hidden');
-        summary.classList.remove('hidden');
-        more.classList.remove('hidden');
-
-        button.classList.add('bg-slate-50', 'hover:bg-slate-50');
-      } else if (next === 'expanded') {
-        content.classList.remove('hidden');
-
-        // Expanded state: swap the normal and hover backgrounds.
-        button.classList.add('bg-slate-50', 'hover:bg-sky-50');
-      } else {
-        button.classList.add('hover:bg-slate-50');
-      }
-
-      const labels = {
-        collapsed: `Show summary for ${title.textContent}`,
-        summary: `Show full details for ${title.textContent}`,
-        expanded: `Collapse ${title.textContent}`,
-      };
-
-      button.setAttribute('aria-expanded', String(next !== 'collapsed'));
-      button.setAttribute('aria-label', labels[next]);
-    };
-
-    button.addEventListener('click', () => {
-      if (state === 'collapsed') {
-        setState('summary');
-      } else if (state === 'summary') {
-        setState('expanded');
-      } else {
-        setState('collapsed');
-      }
-    });
-
-    more.addEventListener('click', (event) => {
       event.preventDefault();
-      event.stopPropagation();
-      setState('expanded');
-      section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    });
+      event.stopImmediatePropagation();
+      const isOpen = button.getAttribute('aria-expanded') === 'true';
+      if (summaryOnlyIds.has(id)) {
+        setState(section, !isOpen, 'summary');
+      } else if (id === interestsId) {
+        // Open Interests to its summary first; a separate 'Tell me more' click reveals details.
+        setState(section, !isOpen, isOpen ? 'summary' : 'summary');
+      } else {
+        setState(section, !isOpen, 'full');
+      }
+    }, true);
 
-    setState('collapsed');
-  });
+    document.addEventListener('click', (event) => {
+      const tellMore = event.target.closest('#interests .tell-more');
+      if (!tellMore) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      const section = tellMore.closest('section');
+      if (section) setState(section, true, 'full');
+    }, true);
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 })();
+</script>
+
+</body>
+</html>
